@@ -1,0 +1,29 @@
+.square{
+    border: 2px solid black;
+    float: left;
+}
+
+.black{
+    background-color: black;
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+
+.button-container{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.button{
+    font-size: 25px;
+    margin-left: 25px;
+}
