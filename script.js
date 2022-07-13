@@ -1,5 +1,8 @@
 
 const container = document.querySelector('.grid')
+const blackColor = 'black';
+const rgbColor = ""; 
+let rgb = false;
 
 
 
@@ -16,16 +19,32 @@ function createGrid(columns, rows){
     }
 }
 
+function setRgb(){
+    if(rgb){
+        rgb = false;
+    }
+    else{
+        rgb = true; 
+    }
+}
 
 function fillSquares(e) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
     if(e.target.classList.value === 'square'){
-    e.target.style.backgroundColor = 'black';
+        if(rgb === true){
+            e.target.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+        else{
+            e.target.style.backgroundColor = blackColor;
+        }
     }
 }
 
 function resetGrid(){
     const squares = container.getElementsByClassName('square');
-    console.log(squares);
     for(i = 0; i < squares.length; i++){
         squares[i].style.backgroundColor = 'white';
         //squares[i];
@@ -34,7 +53,7 @@ function resetGrid(){
 
 function changeGrid(){
     let input = prompt('How many rows & columns? Max 64 is allowed');
-    if(parseInt(prompt) > 64){
+    if(parseInt(input) > 64){
         alert("Entered sized is not allowed")
     }
     else{
